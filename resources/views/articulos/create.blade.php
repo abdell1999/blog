@@ -53,6 +53,15 @@ le ponemos al form novalidate para validar con laravel
     </div>
 
 
+    <div class="form-group mt-3">
+        <label for="imagen">Elige una imagen</label>
+        <input type="file" class="form-control" name="imagen">
+
+
+    </div>
+
+
+
 
   <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Crear artículo">

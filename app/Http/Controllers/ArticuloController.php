@@ -21,7 +21,7 @@ class ArticuloController extends Controller
     {
         $articulos = Articulo::all();
 
-        $mensajes = auth()->user()->articulos;
+        $articulos = auth()->user()->articulos;
         return view('articulos.index')->with('articulos', $articulos);
     }
 
@@ -38,8 +38,8 @@ class ArticuloController extends Controller
         $data = $request->validate([
 
             'titulo' => 'required|min:10|max:25',
-            'contenido' => 'required|min:50|max:5000'
-
+            'contenido' => 'required|min:50|max:5000',
+            'imagen' => 'required|image'
         ]);
 
 
@@ -56,7 +56,8 @@ class ArticuloController extends Controller
             //Almacenar datos en bd usando modelos
             auth()->user()->articulos()->create([
                 'titulo' => $data['titulo'],
-                'contenido' => $data['articulo']
+                'contenido' => $data['contenido'],
+                'imagen' => $data['imagen']
             ]);
 
             //REDIRECCIONAR NO OLVIDARLO
@@ -84,13 +85,15 @@ class ArticuloController extends Controller
         $data = $request->validate([
 
             'titulo' => 'required|min:10|max:25',
-            'contenido' => 'required|min:50|max:5000'
+            'contenido' => 'required|min:50|max:5000',
+            'imagen' => 'required|image'
 
         ]);
 
 
         $articulo->titulo = $data['titulo'];
         $articulo->contenido = $data['contenido'];
+        $articulo->imagen = $data['imagen'];
         $articulo->save();
 
         return redirect()->action([ArticuloController::class, 'index']);
