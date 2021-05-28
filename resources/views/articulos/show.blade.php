@@ -15,4 +15,11 @@
 
 </article>
 
+
+<div>
+
+<img src="/storage/{{ $articulo->imagen }}" alt="">
+
+</div>
+
 @endsection

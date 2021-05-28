@@ -25,7 +25,7 @@ le ponemos al form novalidate para validar con laravel
 -->
 
 <div class="col-md-8">
-<form method="POST" action="{{ route('articulos.store') }}" novalidate>
+<form method="POST" action="{{ route('articulos.store') }}" enctype="multipart/form-data" novalidate>
   @csrf
   <div class="form-group">
     <label for="titulo">Título del artículo</label>
@@ -56,7 +56,11 @@ le ponemos al form novalidate para validar con laravel
     <div class="form-group mt-3">
         <label for="imagen">Elige una imagen</label>
         <input type="file" class="form-control" name="imagen">
-
+        @error('imagen')
+        <span class="invalid-feedback d-block" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
 
     </div>
 

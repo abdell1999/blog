@@ -45,14 +45,6 @@ class ArticuloController extends Controller
 
 
 
-        /* 7.Guardar datos en la bd min 2.31
-        $data = request();
-
-        DB::table('mensajes')->insert([
-            'titulo' -> $data['titulo']
-
-        ]);*/
-
             //Almacenar datos en bd usando modelos
             auth()->user()->articulos()->create([
                 'titulo' => $data['titulo'],
@@ -89,11 +81,11 @@ class ArticuloController extends Controller
             'imagen' => 'required|image'
 
         ]);
-
+            //->store('upload_images', 'public')
 
         $articulo->titulo = $data['titulo'];
         $articulo->contenido = $data['contenido'];
-        $articulo->imagen = $data['imagen'];
+        $articulo->imagen = $data['imagen']->store('upload_images', 'public');
         $articulo->save();
 
         return redirect()->action([ArticuloController::class, 'index']);
