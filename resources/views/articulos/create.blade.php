@@ -15,7 +15,7 @@
 
 
 
-<!-- //El action del form debe ser {{ route('mensajes.store') }}
+<!-- //El action del form debe ser {{ route('articulos.store') }}
 
 añadir tb @csrf...
 
@@ -25,7 +25,7 @@ le ponemos al form novalidate para validar con laravel
 -->
 
 <div class="col-md-8">
-<form method="POST" action="{{ route('mensajes.store') }}" novalidate>
+<form method="POST" action="{{ route('articulos.store') }}" novalidate>
   @csrf
   <div class="form-group">
     <label for="titulo">Título del artículo</label>
@@ -42,10 +42,10 @@ le ponemos al form novalidate para validar con laravel
   </div>
 
     <div class="form-group">
-        <label for="articulo">Artículo:</label>
-        <input id="articulo" type="hidden" name="articulo" value="{{ old('articulo') }}">
-        <trix-editor input="articulo"></trix-editor>
-        @error('articulo')
+        <label for="contenido">Artículo:</label>
+        <input id="contenido" type="hidden" name="contenido" value="{{ old('contenido') }}">
+        <trix-editor input="contenido"></trix-editor>
+        @error('contenido')
         <span class="invalid-feedback d-block" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -55,7 +55,7 @@ le ponemos al form novalidate para validar con laravel
 
 
   <div class="form-group">
-    <input type="submit" class="btn btn-primary" value="Añadir artículo">
+    <input type="submit" class="btn btn-primary" value="Crear artículo">
   </div>
 
 

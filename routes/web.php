@@ -18,13 +18,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('/articulos', [App\Http\Controllers\MensajeController::class, 'index'])->name('articulos.index');
-Route::get('/articulos/create', [App\Http\Controllers\MensajeController::class, 'create'])->name('articulos.create');
-Route::post('/articulos/store', [App\Http\Controllers\MensajeController::class, 'store'])->name('articulos.store');
-Route::get('/articulos/{articulo}', [App\Http\Controllers\MensajeController::class, 'show'])->name('articulos.show');
-Route::get('/articulos/{articulo}/edit', [App\Http\Controllers\MensajeController::class, 'edit'])->name('articulos.edit');
-Route::put('/articulos/{articulo}', [App\Http\Controllers\MensajeController::class, 'update'])->name('articulos.update');
-Route::delete('/articulos/{articulo}', [App\Http\Controllers\MensajeController::class, 'destroy'])->name('articulos.destroy');
+Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos.index');
+Route::get('/articulos/create', [App\Http\Controllers\ArticuloController::class, 'create'])->name('articulos.create');
+Route::post('/articulos/store', [App\Http\Controllers\ArticuloController::class, 'store'])->name('articulos.store');
+Route::get('/articulos/{articulo}', [App\Http\Controllers\ArticuloController::class, 'show'])->name('articulos.show');
+Route::get('/articulos/{articulo}/edit', [App\Http\Controllers\ArticuloController::class, 'edit'])->name('articulos.edit');
+Route::put('/articulos/{articulo}', [App\Http\Controllers\ArticuloController::class, 'update'])->name('articulos.update');
+Route::delete('/articulos/{articulo}', [App\Http\Controllers\ArticuloController::class, 'destroy'])->name('articulos.destroy');
 
 
 

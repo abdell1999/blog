@@ -17,19 +17,19 @@
 
 
         <tbody>
-            @foreach ($mensajes as $mensaje)
+            @foreach ($articulos as $articulo)
             <tr>
-                <td> {{$mensaje->titulo}} </td>
+                <td> {{$articulo->titulo}} </td>
                 <td>
-                    <form method="POST" action="{{ route('mensajes.destroy', ['mensaje'=> $mensaje->id]) }}">
+                    <form method="POST" action="{{ route('articulos.destroy', ['articulo'=> $articulo->id]) }}">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger w-20 d-block" value="Eliminar">
                     </form>
 
-                    <a href="{{ route('articulos.edit', ['mensaje'=> $mensaje->id]) }}" class="btn btn-dark mr-1">Editar</a>
+                    <a href="{{ route('articulos.edit', ['articulo'=> $articulo->id]) }}" class="btn btn-dark mr-1">Editar</a>
                     <br>
-                    <a href="{{ route('articulos.show', ['mensaje'=> $mensaje->id]) }}" class="btn btn-success mr-1">Ver</a>
+                    <a href="{{ route('articulos.show', ['articulo'=> $articulo->id]) }}" class="btn btn-success mr-1">Ver</a>
                 </td>
             </tr>
             @endforeach

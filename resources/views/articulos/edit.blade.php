@@ -25,7 +25,7 @@ le ponemos al form novalidate para validar con laravel
 -->
 
 <div class="col-md-8">
-<form method="POST" action="{{ route('articulos.update',['mensaje' => $mensaje->id]) }}" novalidate>
+<form method="POST" action="{{ route('articulos.update',['articulo' => $articulo->id]) }}" novalidate>
   @csrf
   @method('PUT')
   <div class="form-group">
@@ -43,10 +43,10 @@ le ponemos al form novalidate para validar con laravel
   </div>
 
     <div class="form-group">
-        <label for="articulo">Artículo:</label>
-        <input id="articulo" type="hidden" name="articulo" value="{{ $mensaje->articulo }}">
-        <trix-editor input="articulo"></trix-editor>
-        @error('articulo')
+        <label for="contenido">Artículo:</label>
+        <input id="contenido" type="hidden" name="contenido" value="{{ $articulo->contenido }}">
+        <trix-editor input="contenido"></trix-editor>
+        @error('contenido')
         <span class="invalid-feedback d-block" role="alert">
             <strong>{{ $message }}</strong>
         </span>

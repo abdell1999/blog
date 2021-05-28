@@ -2,16 +2,16 @@
 
 @section('content')
 
-<h1 class="text-center mb-4">{{ $mensaje->titulo }}</h1>
+<h1 class="text-center mb-4">{{ $articulo->titulo }}</h1>
 
 <span class="font-weight-bold">Autor:
-    {{ $mensaje->autor->name }}
+    {{ $articulo->autor->name }}
 </span>
 
 
 <article class="my-3 col align-self-center">
 
-{!! $mensaje->articulo !!}
+{!! $articulo->contenido !!}
 
 </article>
 
