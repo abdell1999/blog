@@ -75,12 +75,12 @@ class ArticuloController extends Controller
     {
         $this->authorize('update', $articulo);
 
-        $data = $request->validate([
+
+           $data = $request->validate([
 
             'titulo' => 'required|min:10|max:25',
             'contenido' => 'required|min:50|max:5000',
             'imagen' => 'required|image'
-
         ]);
             //->store('upload_images', 'public')
 
@@ -88,6 +88,15 @@ class ArticuloController extends Controller
         $articulo->contenido = $data['contenido'];
         $articulo->imagen = $data['imagen']->store('upload_images', 'public');
         $articulo->save();
+
+
+
+
+
+
+
+        //'imagen' => $data['imagen']->store('upload_images', 'public')
+
 
         return redirect()->action([ArticuloController::class, 'index']);
     }

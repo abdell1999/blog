@@ -33,7 +33,7 @@ le ponemos al form novalidate para validar con laravel
     <input type="text" name="titulo" class="form-control @error('titulo')
         is-invalid
     @enderror" id="titulo" placeholder="Título del artículo"
-    value="{{ $mensaje->titulo }}">
+    value="{{ $articulo->titulo }}">
 
     @error('titulo')
         <span class="invalid-feedback d-block" role="alert">
@@ -43,7 +43,7 @@ le ponemos al form novalidate para validar con laravel
   </div>
 
     <div class="form-group">
-        <label for="contenido">Artículo:</label>
+        <label for="contenido">Contenido:</label>
         <input id="contenido" type="hidden" name="contenido" value="{{ $articulo->contenido }}">
         <trix-editor input="contenido"></trix-editor>
         @error('contenido')
@@ -55,8 +55,27 @@ le ponemos al form novalidate para validar con laravel
 
 
 
+
+
+    <div class="form-group mt-3">
+        <label for="imagen">Miniatura del artículo</label>
+        <input type="file" class="form-control" name="imagen" value="{{ $articulo->imagen }}">
+        @error('imagen')
+        <span class="invalid-feedback d-block" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+    @enderror
+
+    <div class="mt-4">
+        <p>Miniatura actual:</p>
+        <img src="{{ route('ruta.index') }}/storage/{{ $articulo->imagen }}" alt="Miniatura" height="25%" width="25%">
+    </div>
+
+
+    </div>
+
   <div class="form-group">
-    <input type="submit" class="btn btn-primary" value="Editar artículo">
+    <input type="submit" class="btn btn-primary" value="Editar artículo" >
   </div>
 
 

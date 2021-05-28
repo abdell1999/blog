@@ -54,7 +54,7 @@ le ponemos al form novalidate para validar con laravel
 
 
     <div class="form-group mt-3">
-        <label for="imagen">Elige una imagen</label>
+        <label for="imagen">Miniatura del artículo</label>
         <input type="file" class="form-control" name="imagen">
         @error('imagen')
         <span class="invalid-feedback d-block" role="alert">
