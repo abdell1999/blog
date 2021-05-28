@@ -16,10 +16,10 @@
 </article>
 
 
-<div>
-
-<img src="{{ route('ruta.index') }}/storage/{{ $articulo->imagen }}" alt="Miniatura">
-
-</div>
-
 @endsection
+
+<!--
+<div>
+<img src="{{ route('ruta.index') }}/storage/{{ $articulo->imagen }}" alt="Miniatura">
+</div>
+-->
