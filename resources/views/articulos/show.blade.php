@@ -18,7 +18,7 @@
 
 <div>
 
-<img src="/storage/{{ $articulo->imagen }}" alt="">
+<img src="{{ route('ruta.index') }}/storage/{{ $articulo->imagen }}" alt="Miniatura">
 
 </div>
 

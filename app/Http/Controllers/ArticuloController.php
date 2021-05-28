@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Articulo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticuloController extends Controller
 {
@@ -49,7 +50,7 @@ class ArticuloController extends Controller
             auth()->user()->articulos()->create([
                 'titulo' => $data['titulo'],
                 'contenido' => $data['contenido'],
-                'imagen' => $data['imagen']
+                'imagen' => $data['imagen']->store('upload_images', 'public')
             ]);
 
             //REDIRECCIONAR NO OLVIDARLO
