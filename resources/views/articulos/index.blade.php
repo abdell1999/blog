@@ -10,6 +10,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th scole="col">Miniaturas</th>
                 <th scole="col">Titulo</th>
                 <th scole="col">Acciones</th>
             </tr>
@@ -19,6 +20,7 @@
         <tbody>
             @foreach ($articulos as $articulo)
             <tr>
+                <td><img src="{{ route('ruta.index') }}/storage/{{ $articulo->imagen }}" alt="Miniatura" height="90" width="90"></td>
                 <td> {{$articulo->titulo}} </td>
                 <td>
                     <form method="POST" action="{{ route('articulos.destroy', ['articulo'=> $articulo->id]) }}">
