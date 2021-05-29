@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\ArticuloController::class, 'index'])->name('ruta.index');
+Route::get('/', [App\Http\Controllers\InicioController::class, 'index'])->name('ruta.index');
 
 
 Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos.index');

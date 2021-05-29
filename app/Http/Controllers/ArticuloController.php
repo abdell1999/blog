@@ -20,6 +20,7 @@ class ArticuloController extends Controller
 
     public function index()
     {
+
         $articulos = Articulo::all();
 
         $articulos = auth()->user()->articulos;
@@ -88,7 +89,7 @@ class ArticuloController extends Controller
         $articulo->contenido = $data['contenido'];
         $articulo->imagen = $data['imagen']->store('upload_images', 'public');
         $articulo->save();
-
+        //PENDIENTE: arreglar el que se pueda actualizar miniatura
 
 
 
@@ -114,4 +115,16 @@ class ArticuloController extends Controller
 
 
     }
+
+    /*
+    public function inicio()
+    {
+        $articulos = Articulo::all();
+        return view('inicio')->with('articulos', $articulos);
+    }*/
+
+
+
+
+
 }
