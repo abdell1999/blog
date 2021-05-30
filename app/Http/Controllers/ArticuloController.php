@@ -80,22 +80,24 @@ class ArticuloController extends Controller
            $data = $request->validate([
 
             'titulo' => 'required|min:10|max:25',
-            'contenido' => 'required|min:50|max:5000',
-            'imagen' => 'required|image'
+            'contenido' => 'required|min:50|max:5000'
         ]);
             //->store('upload_images', 'public')
 
         $articulo->titulo = $data['titulo'];
         $articulo->contenido = $data['contenido'];
-        $articulo->imagen = $data['imagen']->store('upload_images', 'public');
+
+        if(request('imagen')){
+            $data1 = $request;
+
+
+            //$ruta_imagen = $request['imagen']->store('upload_images', 'public');
+            $articulo->imagen = $data1['imagen']->store('upload_images', 'public');
+        }
+
+
         $articulo->save();
         //PENDIENTE: arreglar el que se pueda actualizar miniatura
-
-
-
-
-
-
         //'imagen' => $data['imagen']->store('upload_images', 'public')
 
 
