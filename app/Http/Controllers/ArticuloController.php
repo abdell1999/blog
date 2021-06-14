@@ -39,7 +39,7 @@ class ArticuloController extends Controller
 
         $data = $request->validate([
 
-            'titulo' => 'required|min:10|max:25',
+            'titulo' => 'required|min:10|max:50',
             'contenido' => 'required|min:50|max:5000',
             'imagen' => 'required|image'
         ]);
@@ -79,7 +79,7 @@ class ArticuloController extends Controller
 
            $data = $request->validate([
 
-            'titulo' => 'required|min:10|max:25',
+            'titulo' => 'required|min:10|max:50',
             'contenido' => 'required|min:50|max:5000'
         ]);
             //->store('upload_images', 'public')

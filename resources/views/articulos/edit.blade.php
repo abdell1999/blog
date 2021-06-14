@@ -25,7 +25,7 @@ le ponemos al form novalidate para validar con laravel
 -->
 
 <div class="col-md-8">
-<form method="POST" action="{{ route('articulos.update',['articulo' => $articulo->id]) }}" novalidate>
+<form method="POST" action="{{ route('articulos.update',['articulo' => $articulo->id]) }}" enctype="multipart/form-data" novalidate>
   @csrf
   @method('PUT')
   <div class="form-group">
