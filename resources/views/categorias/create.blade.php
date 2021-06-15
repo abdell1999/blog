@@ -11,7 +11,8 @@
 
 
 @section('content')
-<h1>Crear una nueva categoria</h1>
+<div class="container">
+<h1 class="text-center">Crear una nueva categoría</h1>
 
 
 
@@ -58,7 +59,7 @@
 </div>
 
 
-
+</div>
 
 
 

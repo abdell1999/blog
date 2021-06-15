@@ -11,25 +11,17 @@
 
 
 @section('content')
-<h1>EDIT</h1>
+<div class="container">
+<h1 class="text-center">Editar el artículo</h1>
 
 
-
-<!-- //El action del form debe ser {{ route('articulos.store') }}
-
-añadir tb @csrf...
-
-
-le ponemos al form novalidate para validar con laravel
-
--->
 
 <div class="col-md-8">
 <form method="POST" action="{{ route('articulos.update',['articulo' => $articulo->id]) }}" enctype="multipart/form-data" novalidate>
   @csrf
   @method('PUT')
   <div class="form-group">
-    <label for="titulo">Título del artículo</label>
+    <label for="titulo">Título del artículo:</label>
     <input type="text" name="titulo" class="form-control @error('titulo')
         is-invalid
     @enderror" id="titulo" placeholder="Título del artículo"
@@ -75,6 +67,7 @@ le ponemos al form novalidate para validar con laravel
 
 
     </div>
+    <br>
 
   <div class="form-group">
     <input type="submit" class="btn btn-primary" value="Editar artículo" >
@@ -87,6 +80,6 @@ le ponemos al form novalidate para validar con laravel
 
 
 
-
+</div>
 
 @endsection

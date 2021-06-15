@@ -11,7 +11,8 @@
 
 
 @section('content')
-<h1>Editar categoría</h1>
+<div class="container">
+<h1 class="text-center">Editar categoría</h1>
 
 <div class="col-md-8">
 <form method="POST" action="{{ route('categorias.update',['categoria' => $categoria->id]) }}" novalidate>
@@ -54,7 +55,7 @@
 </div>
 
 
-
+</div>
 
 
 

@@ -3,7 +3,7 @@
 <div class="container">
 <h1 class="text-center">Categorías</h1>
 
-<br>
+
 <a class="btn btn-success mt-4 w-100" href=" {{ route('categorias.create') }} ">Nueva categoría</a>
 <div class="col-md10 mx-auto bg-white p-3">
     <table class="table">

@@ -11,18 +11,8 @@
 
 
 @section('content')
-<h1>CREATE</h1>
-
-
-
-<!-- //El action del form debe ser {{ route('articulos.store') }}
-
-añadir tb @csrf...
-
-
-le ponemos al form novalidate para validar con laravel
-
--->
+<div class="container">
+<h1 class="text-center">Publicar un nuevo artículo</h1>
 
 <div class="col-md-8">
 <form method="POST" action="{{ route('articulos.store') }}" enctype="multipart/form-data" novalidate>
@@ -79,5 +69,5 @@ le ponemos al form novalidate para validar con laravel
 
 
 
-
+</div>
 @endsection
