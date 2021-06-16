@@ -30,6 +30,9 @@ class Articulo extends Model
         return $this->belongsToMany(Categoria::class)->withTimestamps();
     }
 
-
+    public function comentarios()
+    {
+        return $this->hasMany(Comentario::class);
+    }
 
 }

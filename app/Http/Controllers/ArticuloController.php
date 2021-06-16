@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use App\Models\Categoria;
 use App\Models\User;
+use App\Models\Comentario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -113,7 +114,11 @@ class ArticuloController extends Controller
         }
 
 
-        return view('articulos.show', compact('articulo', 'categorias','usuario1', 'propietario'));
+        $comentarios = Comentario::where('articulo_id', $articulo->id)->orderBy('created_at','DESC')->get();
+        $usuarios = User::all();
+        //dd($comentarios);
+
+        return view('articulos.show', compact('articulo', 'categorias','usuario1', 'propietario', 'comentarios','usuarios'));
     }
 
 

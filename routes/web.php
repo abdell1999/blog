@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\ComentarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,11 @@ Route::get('/admin/categorias/{categoria}', [CategoriaController::class, 'show']
 Route::get('/admin/categorias/{categoria}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
 Route::put('/admin/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
 Route::delete('/admin/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+
+
+
+//Comentarios
+Route::post('/comentarios/store', [ComentarioController::class, 'store'])->name('comentarios.store');
 
 
 Auth::routes();
