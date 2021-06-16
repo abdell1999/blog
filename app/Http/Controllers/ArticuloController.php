@@ -6,6 +6,7 @@ use App\Models\Articulo;
 use App\Models\Categoria;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -103,8 +104,16 @@ class ArticuloController extends Controller
         $usuario = User::where('id', $articulo->user_id)->take(1)->get();
         $usuario1 = $usuario->first();
         //dd($usuario);
+        //dd(Auth::id());
+        $propietario = false;
 
-        return view('articulos.show', compact('articulo', 'categorias','usuario1'));
+
+        if(Auth::id()===$usuario1->id){
+            $propietario = true;
+        }
+
+
+        return view('articulos.show', compact('articulo', 'categorias','usuario1', 'propietario'));
     }
 
 

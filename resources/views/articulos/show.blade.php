@@ -10,6 +10,19 @@
 
                 <header class="mb-4">
 
+                    @if ($propietario)
+
+                <div class="btn-group"><a href="{{ route('articulos.edit', ['articulo'=> $articulo->id]) }}" class="btn btn-dark mr-1">Editar</a>
+                    <form method="POST" action="{{ route('articulos.destroy', ['articulo'=> $articulo->id]) }}">
+                      @csrf
+                      @method('DELETE')
+                      <input type="submit" class="btn btn-danger w-20 d-block " value="Eliminar">
+
+                  </form></div>
+
+
+                @endif
+
                     <h1 class="fw-bolder mb-1">{{ $articulo->titulo }}</h1>
 
                     <div class="text-muted fst-italic mb-2">Publicado {{ $articulo->created_at}} por <a href="#">{{ $articulo->autor->name }}</a></div>
