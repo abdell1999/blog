@@ -28,12 +28,11 @@
                 </div>
                 @endforeach
 
-
-
-
-
-
             </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            {!! $articulos->links() !!}
         </div>
     </section>
 

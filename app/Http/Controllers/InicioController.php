@@ -9,7 +9,7 @@ class InicioController extends Controller
 
 
     public function index(){
-        $articulos = Articulo::all();
+        $articulos = Articulo::paginate(12);
         return view('inicio')->with('articulos', $articulos);
     }
 
