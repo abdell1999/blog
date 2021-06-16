@@ -55,6 +55,31 @@
     </div>
 
 
+    <div class="form-group mt-3">
+
+        <label for="categorias" class="form-label">Categorías:</label><br>
+                <select class="form-select" name="categorias[]" size="5" multiple="multiple">
+                    <?php $cont = 0;?>
+
+                    @foreach ($categorias as $categoria)
+                    @if (isset($articuloCategorias) && count($articuloCategorias)>$cont && $categoria->id == $articuloCategorias[$cont]->categoria_id)
+                        <option selected value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                        {{$cont++}}
+                    @else
+                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                    @endif
+                    @endforeach
+                </select>
+            </div>
+
+
+
+
+    </div>
+
+
+
+
 
 
   <div class="form-group">

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articulo;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class ArticuloController extends Controller
 {
@@ -30,7 +32,11 @@ class ArticuloController extends Controller
 
     public function create()
     {
-        return view('articulos.create');
+
+        $categorias = Categoria::all();
+
+
+        return view('articulos.create', compact('categorias'));
     }
 
 
@@ -54,6 +60,34 @@ class ArticuloController extends Controller
                 'imagen' => $data['imagen']->store('upload_images', 'public')
             ]);
 
+
+
+            $articulo_id = Articulo::where('titulo', $data['titulo'])->take(1)->get();
+
+
+            //dd($request->categorias);
+           // dd($request);
+
+
+
+        //Con esto permito la creación de artículos sin tener que especificar categorías
+        if($request->categorias!=null){
+            foreach ($request->categorias as $categoria) {
+                DB::table('articulo_categoria')->insert([
+                    'articulo_id' => $articulo_id[0]->id,
+                    'categoria_id' => $categoria,
+                ]);
+            }
+        }
+
+
+
+
+
+
+
+
+
             //REDIRECCIONAR NO OLVIDARLO
             return redirect()->action([ArticuloController::class, 'index']);
     }
@@ -61,14 +95,21 @@ class ArticuloController extends Controller
 
     public function show(Articulo $articulo)
     {
-        return view('articulos.show', compact('articulo'));
+        //$categoriaraw = DB::select('SELECT categoria_id FROM articulo_categoria WHERE articulo_id = '. $articulo->id .'');
+        //$categorias =  DB::select('SELECT * FROM categorias WHERE id = '. $categoriaraw->id_categoria .'');
+        $categorias = DB::select('SELECT * FROM categorias INNER JOIN articulo_categoria ON categorias.id = articulo_categoria.categoria_id WHERE articulo_id = '. $articulo->id .';');
+
+
+        return view('articulos.show', compact('articulo', 'categorias'));
     }
 
 
     public function edit(Articulo $articulo)
     {
         $this->authorize('update', $articulo);
-        return view('articulos.edit', compact('articulo'));
+        $categorias = Categoria::all();
+
+        return view('articulos.edit', compact('articulo', 'categorias'));
     }
 
 
@@ -97,8 +138,29 @@ class ArticuloController extends Controller
 
 
         $articulo->save();
-        //PENDIENTE: arreglar el que se pueda actualizar miniatura
-        //'imagen' => $data['imagen']->store('upload_images', 'public')
+
+        //Si el usuario no selecciona categorias se queda tal y como esta, en cambio si selecciona categorias
+        //aunque sean las mismas borramos las anteriores y guardamos las nuevas
+
+
+        if($request->categorias!=null){
+            //DELETE FROM articulo_categoria WHERE articulo_id='. $articulo->id .';
+            DB::table('articulo_categoria')->where('articulo_id', $articulo->id)->delete();
+
+
+            foreach ($request->categorias as $categoria) {
+                DB::table('articulo_categoria')->insert([
+                    'articulo_id' => $articulo->id,
+                    'categoria_id' => $categoria,
+                ]);
+            }
+        }
+
+
+
+
+
+
 
 
         return redirect()->action([ArticuloController::class, 'index']);
@@ -118,7 +180,7 @@ class ArticuloController extends Controller
 
     }
 
-    /*
+    /*HECHO EN OTRO CONTROLADOR
     public function inicio()
     {
         $articulos = Articulo::all();
