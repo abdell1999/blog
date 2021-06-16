@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Articulo;
 use App\Models\Categoria;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -99,8 +100,11 @@ class ArticuloController extends Controller
         //$categorias =  DB::select('SELECT * FROM categorias WHERE id = '. $categoriaraw->id_categoria .'');
         $categorias = DB::select('SELECT * FROM categorias INNER JOIN articulo_categoria ON categorias.id = articulo_categoria.categoria_id WHERE articulo_id = '. $articulo->id .';');
 
+        $usuario = User::where('id', $articulo->user_id)->take(1)->get();
+        $usuario1 = $usuario->first();
+        //dd($usuario);
 
-        return view('articulos.show', compact('articulo', 'categorias'));
+        return view('articulos.show', compact('articulo', 'categorias','usuario1'));
     }
 
 
@@ -108,6 +112,9 @@ class ArticuloController extends Controller
     {
         $this->authorize('update', $articulo);
         $categorias = Categoria::all();
+
+
+
 
         return view('articulos.edit', compact('articulo', 'categorias'));
     }
