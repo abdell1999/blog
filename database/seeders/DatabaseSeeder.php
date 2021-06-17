@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Articulo;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call(UsersSeeder::class);
+        $this->call(CategoriasSeeder::class);
+        $this->call(ArticulosSeeder::class);
+        $this->call(ArticuloCategoriaSeeder::class);
+
+        Articulo::factory()->count(55)->create();
 
 
 
