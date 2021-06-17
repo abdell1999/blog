@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('apellido1');
             $table->string('apellido2');
             $table->text('about');
+            $table->string('rol');
             $table->string('email')->unique();
             $table->string('fotoPerfil');
             $table->timestamp('email_verified_at')->nullable();

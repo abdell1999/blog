@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'apellido1' => ['required', 'string', 'max:50'],
             'about' => ['required', 'string', 'max:700'],
             'fotoPerfil' => ['required', 'image'],
+            'rol' => ['required'],
         ]);
     }
 
@@ -77,6 +78,7 @@ class RegisterController extends Controller
             'apellido2' => $data['apellido2'],
             'about' => $data['about'],
             'fotoPerfil' => $data['fotoPerfil']->store('upload_images', 'public'),
+            'rol' => $data['rol'],
         ]);
     }
 }

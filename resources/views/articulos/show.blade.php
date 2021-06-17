@@ -53,13 +53,15 @@
 
                         <div class="d-flex mb-4">
                             @foreach ($usuarios as $usuario )
+                            @if ($comentario->user_id===$usuario->id)
                             <div class="flex-shrink-0"><img class="rounded-circle" src="{{ route('ruta.index') }}/storage/{{ $usuario->fotoPerfil }}" width="50" height="50" alt="..."></div>
+
                             <div class="ms-3">
                                 <div class="fw-bold">
 
 
 
-                                        @if ($comentario->user_id===$usuario->id)
+
                                             {{ $usuario->name }}
                                         @endif
 
@@ -88,7 +90,7 @@
 
 
                             <div class="area2 p- text-center px-3">
-                    <div class="image mr-3"> <img src="{{ route('ruta.index') }}/storage/{{ $usuario->fotoPerfil }}" class="rounded-circle" width="100" />
+                    <div class="image mr-3"> <img src="{{ route('ruta.index') }}/storage/{{ $usuario1->fotoPerfil }}" class="rounded-circle" width="100" />
                     </div>
                         <br>
                     <h3>{{ $usuario1->name }}</h3>

@@ -103,6 +103,8 @@ class ArticuloController extends Controller
         $categorias = DB::select('SELECT * FROM categorias INNER JOIN articulo_categoria ON categorias.id = articulo_categoria.categoria_id WHERE articulo_id = '. $articulo->id .';');
 
         $usuario = User::where('id', $articulo->user_id)->take(1)->get();
+
+
         $usuario1 = $usuario->first();
         //dd($usuario);
         //dd(Auth::id());

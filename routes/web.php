@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,17 +32,17 @@ Route::put('/articulos/{articulo}', [ArticuloController::class, 'update'])->name
 Route::delete('/articulos/{articulo}', [ArticuloController::class, 'destroy'])->name('articulos.destroy');
 
 //PARTE ADMIN
-
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index')->middleware('App\Http\Middleware\Managed::class');
 
 
 //Rutas relacionadas con las categorias
-Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
-Route::get('/admin/categorias/create', [CategoriaController::class, 'create'])->name('categorias.create');
-Route::post('/admin/categorias/store', [CategoriaController::class, 'store'])->name('categorias.store');
-Route::get('/admin/categorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show');
-Route::get('/admin/categorias/{categoria}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit');
-Route::put('/admin/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update');
-Route::delete('/admin/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy');
+Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('categorias.index')->middleware('App\Http\Middleware\Managed::class');
+Route::get('/admin/categorias/create', [CategoriaController::class, 'create'])->name('categorias.create')->middleware('App\Http\Middleware\Managed::class');
+Route::post('/admin/categorias/store', [CategoriaController::class, 'store'])->name('categorias.store')->middleware('App\Http\Middleware\Managed::class');
+Route::get('/admin/categorias/{categoria}', [CategoriaController::class, 'show'])->name('categorias.show')->middleware('App\Http\Middleware\Managed::class');
+Route::get('/admin/categorias/{categoria}/edit', [CategoriaController::class, 'edit'])->name('categorias.edit')->middleware('App\Http\Middleware\Managed::class');
+Route::put('/admin/categorias/{categoria}', [CategoriaController::class, 'update'])->name('categorias.update')->middleware('App\Http\Middleware\Managed::class');
+Route::delete('/admin/categorias/{categoria}', [CategoriaController::class, 'destroy'])->name('categorias.destroy')->middleware('App\Http\Middleware\Managed::class');
 
 
 

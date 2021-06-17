@@ -56,6 +56,22 @@
                                 </li>
                             @endif
                         @else
+
+
+
+
+                        @if (Auth::user()->rol == 'admin')
+                        <li class="nav-item">
+                            <a id="navbarDropdown" class="nav-link" href="{{ route('admin.index') }}" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Administrar sitio
+                            </a>
+
+                        @endif
+
+
+
+
+
                         <li class="nav-item">
                             <a id="navbarDropdown" class="nav-link" href="{{ route('articulos.index') }}" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Artículos

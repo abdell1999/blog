@@ -137,6 +137,7 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="rol" value="normal_user">
 
                         <div class="form-group row">
                             <label for="fotoPerfil" class="col-md-4 col-form-label text-md-right">Foto de perfil:</label>
