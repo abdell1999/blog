@@ -52,12 +52,12 @@
 
 
                         <div class="d-flex mb-4">
-
-                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."></div>
+                            @foreach ($usuarios as $usuario )
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="{{ route('ruta.index') }}/storage/{{ $usuario->fotoPerfil }}" width="50" height="50" alt="..."></div>
                             <div class="ms-3">
                                 <div class="fw-bold">
 
-                                    @foreach ($usuarios as $usuario )
+
 
                                         @if ($comentario->user_id===$usuario->id)
                                             {{ $usuario->name }}
