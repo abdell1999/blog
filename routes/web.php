@@ -48,6 +48,10 @@ Route::delete('/admin/categorias/{categoria}', [CategoriaController::class, 'des
 Route::post('/comentarios/store', [ComentarioController::class, 'store'])->name('comentarios.store');
 
 
+
+//Perfiles
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

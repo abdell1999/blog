@@ -84,10 +84,19 @@
             <div class="card mb-4">
                 <div class="card-header">Sobre el autor</div>
                 <div class="card-body">
-                    <p>FOTO</p>
-                    {{ $usuario1->name }}
-                    {{ $usuario1->about }}
-                    <p>LINK AL PERFIL</p>
+
+
+
+                            <div class="area2 p- text-center px-3">
+                    <div class="image mr-3"> <img src="{{ route('ruta.index') }}/storage/{{ $usuario->fotoPerfil }}" class="rounded-circle" width="100" />
+                    </div>
+                        <br>
+                    <h3>{{ $usuario1->name }}</h3>
+                    <p>{{ $usuario1->about }}</p>
+
+
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver perfil</a></div>
+
 
 
                 </div>
