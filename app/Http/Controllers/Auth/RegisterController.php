@@ -57,7 +57,6 @@ class RegisterController extends Controller
             'apellido1' => ['required', 'string', 'max:50'],
             'about' => ['required', 'string', 'max:700'],
             'fotoPerfil' => ['required', 'image'],
-            'rol' => ['required'],
         ]);
     }
 
@@ -70,23 +69,23 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-
+        /*
         if($data['apellido2']==null){
             $apellido2 = '';
         }else{
             $apellido2 = $data['apellido2'];
         }
-
+        */
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'nombre' => $data['nombre'],
             'apellido1' => $data['apellido1'],
-            'apellido2' => $apellido2,
+            'apellido2' => $data['apellido2'],
             'about' => $data['about'],
             'fotoPerfil' => $data['fotoPerfil']->store('upload_images', 'public'),
-            'rol' => $data['rol'],
+            'rol' => 'normal_user',
         ]);
     }
 }

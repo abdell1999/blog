@@ -86,10 +86,7 @@
             <div class="card mb-4">
                 <div class="card-header">Sobre el autor</div>
                 <div class="card-body">
-
-
-
-                            <div class="area2 p- text-center px-3">
+                 <div class="area2 p- text-center px-3">
                     <div class="image mr-3"> <img src="{{ route('ruta.index') }}/storage/{{ $usuario1->fotoPerfil }}" class="rounded-circle" width="100" />
                     </div>
                         <br>

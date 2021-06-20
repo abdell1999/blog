@@ -29,8 +29,7 @@
                     </form>
 
                     <a href="{{ route('categorias.edit', ['categoria'=> $categoria->id]) }}" class="btn btn-dark mr-1">Editar</a>
-                    <br>
-                    <a href="{{ route('categorias.show', ['categoria'=> $categoria->id]) }}" class="btn btn-success mr-1">Ver</a>
+
                 </td>
             </tr>
             @endforeach
