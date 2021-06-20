@@ -5,6 +5,7 @@ use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -21,6 +22,9 @@ use App\Http\Controllers\AdminController;
 
 //Pagina de inicio
 Route::get('/', [App\Http\Controllers\InicioController::class, 'index'])->name('ruta.index');
+
+//Perfiles
+Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 
 //Rutas relacionadas con los articulos
 Route::get('/articulos', [ArticuloController::class, 'index'])->name('articulos.index');

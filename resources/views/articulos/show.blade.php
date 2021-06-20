@@ -25,7 +25,7 @@
 
                     <h1 class="fw-bolder mb-1">{{ $articulo->titulo }}</h1>
 
-                    <div class="text-muted fst-italic mb-2">Publicado {{ $articulo->created_at}} por <a href="#">{{ $articulo->autor->name }}</a></div>
+                    <div class="text-muted fst-italic mb-2">Publicado {{ $articulo->created_at}} por <a href="{{ route('users.show', ['user'=> $usuario1->id]) }}">{{ $articulo->autor->name }}</a></div>
 
                     @foreach ($categorias as $categoria)
                     <a class="badge bg-secondary text-decoration-none link-light" href="#comentarios"><abbr title="{{ $categoria->descripcion }}">
@@ -103,7 +103,7 @@
                     <p>{{ $usuario1->about }}</p>
 
 
-                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver perfil</a></div>
+                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{{ route('users.show', ['user'=> $usuario1->id]) }}">Ver perfil</a></div>
 
 
 
