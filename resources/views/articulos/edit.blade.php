@@ -91,6 +91,15 @@
 
     </div>
 
+    <div class="form-group mt-3">
+        <label for="enableComentary">¿Habilitar comentarios?</label>
+        <select name="enableComentary">
+            <option value="1" selected>Sí</option>
+            <option value="0">No, no me gusta recibir críticas</option>
+         </select>
+
+    </div>
+
 
 
 

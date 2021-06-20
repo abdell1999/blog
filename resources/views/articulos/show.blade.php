@@ -41,6 +41,11 @@
             <section class="mb-5">
                 <div class="card bg-light">
                     <div class="card-body">
+
+                        @if ($articulo->enableComentary==1)
+
+
+
                         <form method="POST" action="{{ route('comentarios.store') }}" novalidate class="mb-4">
                             @csrf
                             <textarea class="form-control" rows="3" name="contenido" placeholder="Deja un comentario!!!"></textarea>
@@ -48,6 +53,9 @@
                             <input type="submit" class="btn btn-primary" value="Comentar" >
 
                         </form>
+                        @endif
+
+
                         @foreach ($comentarios as $comentario)
 
 

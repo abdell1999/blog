@@ -53,15 +53,35 @@ class ArticuloController extends Controller
             'imagen' => 'required|image'
         ]);
 
+        //dd($request);
+        //dd($request['enableComentary']);
 
-
-
+        /*
             //Almacenar datos en bd usando modelos
             auth()->user()->articulos()->create([
                 'titulo' => $data['titulo'],
                 'contenido' => $data['contenido'],
-                'imagen' => $data['imagen']->store('upload_images', 'public')
+                'imagen' => $data['imagen']->store('upload_images', 'public'),
+                'enableComentary' => $request['enableComentary'],
             ]);
+        */
+        $user_id = Auth::id();
+        $articulo = new Articulo();
+        $articulo->titulo = $data['titulo'];
+        $articulo->contenido = $data['contenido'];
+        $articulo->imagen = $data['imagen']->store('upload_images', 'public');
+        $articulo->user_id = $user_id;
+        $articulo->enableComentary = $request['enableComentary'];
+
+
+        $articulo->save();
+
+
+
+
+
+
+
 
 
 
@@ -148,6 +168,7 @@ class ArticuloController extends Controller
 
         $articulo->titulo = $data['titulo'];
         $articulo->contenido = $data['contenido'];
+        $articulo->enableComentary = $request['enableComentary'];
 
         if(request('imagen')){
             $data1 = $request;
