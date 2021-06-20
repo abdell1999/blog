@@ -21,6 +21,7 @@ class ArticulosSeeder extends Seeder
             'contenido' => '<div>Contenido del articulo Contenido del articulo Contenido del articulo Contenido del articulo Contenido del articulo Contenido del articulo Contenido del articulo Contenido del articulo Contenido del articulo </div>',
             'imagen' => 'upload_images/monalisa.jpg',
             'user_id' => '1',
+            'enableComentary' => '1',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -33,6 +34,7 @@ Porque aunque Game Pass lleva bastantes meses en funcionamiento, es el E3 es el 
             'imagen' => 'upload_images/microsoft.jpg',
             'user_id' => '1',
             'created_at' => now(),
+            'enableComentary' => '1',
             'updated_at' => now(),
 //videojuegos,técnologia.
         ]);
@@ -46,6 +48,7 @@ Samsung Galaxy A21s de 128GB por 169 euros en Amazon, en otras tiendas ronda los
             'imagen' => 'upload_images/amazon.jpg',
             'user_id' => '1',
             'created_at' => now(),
+            'enableComentary' => '1',
             'updated_at' => now(),
 //comercio,técnologia.
         ]);
@@ -58,6 +61,7 @@ Un repaso para ayudar a elegir el móvil que mejor se adapte a las necesidades d
 Y es que pese a que la diferencia entre España y China nunca había sido tan alta, Xiaomi sigue siendo una de las marcas más competitivas. Aquí os traemos una nueva guía de compra y comparativa con los los mejores móviles Xiaomi en relación calidad/precio. Esperamos que os sirva para decidir qué smartphone comprar.</div>',
             'imagen' => 'upload_images/xiaomi.jpg',
             'user_id' => '2',
+            'enableComentary' => '1',
             'created_at' => now(),
             'updated_at' => now(),
 //técnologia.
@@ -74,6 +78,7 @@ Han pasado muchas cosas, circunstancias que pasan en la vida. Nunca me he querid
             'imagen' => 'upload_images/sergioramos.jpg',
             'user_id' => '3',
             'created_at' => now(),
+            'enableComentary' => '1',
             'updated_at' => now(),
 //Deportes.
         ]);

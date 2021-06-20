@@ -26,6 +26,7 @@ class ArticuloFactory extends Factory
             'contenido'=> "CONTENIDO",
             'user_id'=> $this->faker->randomElement($array=array('1', '2', '3', '4', '5')),
             'imagen' =>'upload_images/noimage.png',
+            'enableComentary' => '1',
             'created_at' => now(),
             'updated_at' => now(),
         ];

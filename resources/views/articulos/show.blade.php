@@ -28,7 +28,8 @@
                     <div class="text-muted fst-italic mb-2">Publicado {{ $articulo->created_at}} por <a href="#">{{ $articulo->autor->name }}</a></div>
 
                     @foreach ($categorias as $categoria)
-                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{$categoria->nombre}}</a>
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#comentarios"><abbr title="{{ $categoria->descripcion }}">
+                        {{$categoria->nombre}}</a>
                     @endforeach
 
                 </header>
@@ -40,7 +41,7 @@
             </article>
             <section class="mb-5">
                 <div class="card bg-light">
-                    <div class="card-body">
+                    <div class="card-body" id="comentarios">
 
                         @if ($articulo->enableComentary==1)
 

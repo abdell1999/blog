@@ -29,9 +29,10 @@ class ComentarioController extends Controller
 
 
         $comentario->save();
-
+        //comentarios {{ route('articulos.show', ['articulo'=> $articulo->id]) }}
             //Redirecciona a la pagina anterior
-            return redirect()->back();
+            //return redirect()->back();
+            return redirect()->route('articulos.show', [$comentario->articulo_id."#comentarios"]);
 
     }
 
